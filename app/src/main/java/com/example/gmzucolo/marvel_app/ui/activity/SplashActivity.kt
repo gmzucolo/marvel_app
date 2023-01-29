@@ -55,11 +55,11 @@ fun SplashScreen() {
                 } + expandVertically(
                     // Expand from the top.
                     expandFrom = Alignment.Top
-                ) + scaleIn(
+                ) + fadeIn(
                     // Fade in with the initial alpha of 0.3f.
-                    initialScale = 0.3f
+                    initialAlpha = 0.3f
                 ),
-                    exit = slideOutVertically() + shrinkVertically() + scaleOut()) {
+                    exit = slideOutVertically() + shrinkVertically() + fadeOut()) {
                     Image(
                         painter = painterResource(id = R.drawable.marvel_logo_large),
                         contentDescription = "logo marvel"

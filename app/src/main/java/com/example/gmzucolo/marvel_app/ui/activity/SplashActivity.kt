@@ -3,18 +3,19 @@ package com.example.gmzucolo.marvel_app.ui.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.*
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.gmzucolo.marvel_app.ui.theme.AppCustomTypography
+import com.example.gmzucolo.marvel_app.R
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 class SplashActivity : ComponentActivity() {
@@ -43,14 +44,26 @@ fun SplashScreen() {
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = "MARVEL",
-                    style = AppCustomTypography.h1,
-                    modifier = Modifier.padding(16.dp),
-                    textAlign = TextAlign.Center,
-                    fontSize = 48.sp
-
-                )
+                var editable by remember {
+                    mutableStateOf(true)
+                }
+                val density = LocalDensity.current
+                AnimatedVisibility(visible = editable, enter = slideInVertically {
+                    // Slide in from 40 dp from the top.
+                    with(density) { -40.dp.roundToPx() }
+                } + expandVertically(
+                    // Expand from the top.
+                    expandFrom = Alignment.Top
+                ) + fadeIn(
+                    // Fade in with the initial alpha of 0.3f.
+                    initialAlpha = 0.3f
+                ),
+                    exit = slideOutVertically() + shrinkVertically() + fadeOut()) {
+                    Image(
+                        painter = painterResource(id = R.drawable.marvel_logo_large),
+                        contentDescription = "logo marvel"
+                    )
+                }
             }
         }
     }

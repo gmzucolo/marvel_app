@@ -99,11 +99,10 @@ fun MarvelappTheme(
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
             if (darkTheme) DarkThemeColors else lightThemeColors
         }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> DarkThemeColors
+        else -> lightThemeColors
     }
     val view = LocalView.current
     if (!view.isInEditMode) {

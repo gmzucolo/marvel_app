@@ -1,5 +1,6 @@
 package com.example.gmzucolo.marvel_app.ui.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.example.gmzucolo.marvel_app.R
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,6 @@ class SplashActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun SplashScreen() {
     Column(
@@ -45,7 +46,7 @@ fun SplashScreen() {
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                var editable by remember {
+                val editable by remember {
                     mutableStateOf(true)
                 }
                 val density = LocalDensity.current

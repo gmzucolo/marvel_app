@@ -1,4 +1,4 @@
-package com.example.gmzucolo.marvel_app.ui.component
+package com.example.gmzucolo.marvel_app.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -30,13 +30,10 @@ fun ItemComicCard() {
             .clickable { }) {
             Image(
                 painter = painterResource(id = R.drawable.marvel_logo_large),
-                contentDescription = ""
+                contentDescription = "", modifier = Modifier.fillMaxWidth()
             )
             Text(text = "Name", modifier = Modifier.padding(vertical = 8.dp))
-            Text(
-                text = LoremIpsum(100).toString(),
-                modifier = Modifier.padding(vertical = 8.dp)
-            )
+            Text(text = LoremIpsum(20).values.first())
         }
     }
 }

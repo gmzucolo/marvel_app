@@ -15,11 +15,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.example.gmzucolo.marvel_app.R
+import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ItemComicCard() {
+fun ItemComicCard(character: CharacterModelSample) {
     Card(modifier = Modifier
         .fillMaxWidth()
         .padding(8.dp)
@@ -32,8 +33,8 @@ fun ItemComicCard() {
                 painter = painterResource(id = R.drawable.marvel_logo_large),
                 contentDescription = "", modifier = Modifier.fillMaxWidth()
             )
-            Text(text = "Name", modifier = Modifier.padding(vertical = 8.dp))
-            Text(text = LoremIpsum(20).values.first())
+            Text(text = character.name, modifier = Modifier.padding(vertical = 8.dp))
+            character.description?.let { Text(text = it) }
         }
     }
 }
@@ -42,7 +43,13 @@ fun ItemComicCard() {
 @Composable
 fun ItemComicCardLightPreview() {
     MarvelappTheme(darkTheme = false) {
-        ItemComicCard()
+        ItemComicCard(
+            CharacterModelSample(
+                id = 1,
+                name = LoremIpsum(3).values.first(),
+                description = LoremIpsum(20).values.first()
+            )
+        )
     }
 }
 
@@ -50,6 +57,12 @@ fun ItemComicCardLightPreview() {
 @Composable
 fun ItemComicCardDarkPreview() {
     MarvelappTheme(darkTheme = true) {
-        ItemComicCard()
+        ItemComicCard(
+            CharacterModelSample(
+                id = 1,
+                name = LoremIpsum(3).values.first(),
+                description = LoremIpsum(20).values.first()
+            )
+        )
     }
 }

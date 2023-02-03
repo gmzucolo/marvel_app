@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,26 +18,29 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MarvelappTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MainScreen("Android")
-                }
+                MarvelApp()
             }
         }
     }
 }
 
 @Composable
-fun MainScreen(name: String) {
-    Text(text = "Hello $name!")
+fun MarvelApp() {
+
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview() {
-    MarvelappTheme {
-        MainScreen("Android")
+fun MarvelAppLightPreview() {
+    MarvelappTheme(darkTheme = false) {
+        MarvelApp()
+    }
+}
+
+@Preview
+@Composable
+fun MarvelAppNightPreview() {
+    MarvelappTheme(darkTheme = true) {
+        MarvelApp()
     }
 }

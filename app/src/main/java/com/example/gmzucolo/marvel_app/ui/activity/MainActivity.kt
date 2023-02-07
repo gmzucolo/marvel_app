@@ -22,6 +22,7 @@ import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
 import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
+import kotlinx.coroutines.delay
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,10 +58,17 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             startDestination = AppDestination.Search.route
                         ) {
+                            composable(AppDestination.Splash.route) {
+                                SplashScreen()
+                                LaunchedEffect(Unit) {
+                                    delay(5000L)
+                                    navController.navigate(AppDestination.Search.route)
+                                }
+                            }
                             composable(AppDestination.Search.route) {
                                 SearchCharacterScreen(
                                     characters = sampleCharacters,
-                                    onNavigateToDetails = { navController.navigate("detail") }
+                                    onNavigateToDetails = { navController.navigate(AppDestination.Detail.route) }
                                 )
                             }
                             composable(AppDestination.Favorite.route) {
@@ -69,7 +77,7 @@ class MainActivity : ComponentActivity() {
                             composable(AppDestination.Detail.route) {
                                 DetailCharacterScreen(
                                     character = sampleCharacters.random(),
-                                    onFavoriteClick = { navController.navigate("favorite") })
+                                    onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
                             }
                         }
                     }

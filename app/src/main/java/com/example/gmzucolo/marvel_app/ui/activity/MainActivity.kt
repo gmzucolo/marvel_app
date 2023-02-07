@@ -16,10 +16,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.gmzucolo.marvel_app.data.sample.bottomAppBarItems
 import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
+import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
 import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
-import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteCharacterFragment
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                     var selectedItem by remember(currentDestination) {
                         val item = currentDestination?.let {
                             bottomAppBarItems.find {
-                                it.route == currentDestination.route
+                                it.destination.route == currentDestination.route
                             }
                         } ?: bottomAppBarItems.first()
                         mutableStateOf(item)
@@ -46,24 +46,27 @@ class MainActivity : ComponentActivity() {
                     MarvelApp(
                         bottomAppBarItemSelected = selectedItem,
                         onBottomAppBarItemSelectedChange = {
-                            val route = it.route
+                            val route = it.destination.route
                             navController.navigate(route) {
                                 launchSingleTop = true
                                 popUpTo(route)
                             }
                         }
                     ) {
-                        NavHost(navController = navController, startDestination = "search") {
-                            composable("search") {
+                        NavHost(
+                            navController = navController,
+                            startDestination = AppDestination.Search.route
+                        ) {
+                            composable(AppDestination.Search.route) {
                                 SearchCharacterScreen(
                                     characters = sampleCharacters,
                                     onNavigateToDetails = { navController.navigate("detail") }
                                 )
                             }
-                            composable("favorite") {
+                            composable(AppDestination.Favorite.route) {
 //                                FavoriteCharacterFragment()
                             }
-                            composable("detail") {
+                            composable(AppDestination.Detail.route) {
                                 DetailCharacterScreen(
                                     character = sampleCharacters.random(),
                                     onFavoriteClick = { navController.navigate("favorite") })

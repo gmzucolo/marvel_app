@@ -9,12 +9,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.gmzucolo.marvel_app.data.sample.bottomAppBarItems
+import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 class BottomAppBarItem(
     val label: String,
     val icon: ImageVector,
-    val route: String
+    val destination: AppDestination
 )
 
 @Composable

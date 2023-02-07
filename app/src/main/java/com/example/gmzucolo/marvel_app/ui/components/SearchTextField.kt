@@ -1,5 +1,6 @@
 package com.example.gmzucolo.marvel_app.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,6 +22,7 @@ import com.example.gmzucolo.marvel_app.ui.theme.md_theme_light_shadow
 @Composable
 fun SearchTextField(
     searchText: String,
+    modifier: Modifier,
     onSearchTextChange: (String) -> Unit,
 ) {
     OutlinedTextField(
@@ -52,7 +55,10 @@ fun SearchTextField(
 @Composable
 fun SearchTextFieldLightPreview() {
     MarvelappTheme(darkTheme = false) {
-        SearchTextField(searchText = "test", onSearchTextChange = {})
+        SearchTextField(
+            searchText = "test", onSearchTextChange = {},
+            modifier = Modifier.background(MaterialTheme.colorScheme.background)
+        )
     }
 }
 
@@ -60,6 +66,9 @@ fun SearchTextFieldLightPreview() {
 @Composable
 fun SearchTextFieldDarkPreview() {
     MarvelappTheme(darkTheme = true) {
-        SearchTextField(searchText = "test", onSearchTextChange = {})
+        SearchTextField(
+            searchText = "test", onSearchTextChange = {},
+            modifier = Modifier.background(MaterialTheme.colorScheme.background)
+        )
     }
 }

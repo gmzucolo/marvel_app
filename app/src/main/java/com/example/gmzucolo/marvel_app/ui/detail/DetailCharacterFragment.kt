@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -48,6 +48,7 @@ fun DetailCharacterScreen(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
+            .background(MaterialTheme.colorScheme.background)
     ) {
         character.image?.let {
             AsyncImage(
@@ -69,7 +70,7 @@ fun DetailCharacterScreen(
             Text(text = character.name, fontSize = 24.sp)
             character.description?.let { Text(text = it, fontSize = 18.sp) }
             Button(
-                onClick = { onFavoriteClick },
+                onClick = { onFavoriteClick() },
                 Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {

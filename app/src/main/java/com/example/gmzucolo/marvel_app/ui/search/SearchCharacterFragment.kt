@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,7 +36,10 @@ fun SearchCharacterScreen(
     onNavigateToDetails: () -> Unit = {}
 ) {
     Column() {
-        SearchTextField(searchText = "", onSearchTextChange = {})
+        SearchTextField(
+            searchText = "", onSearchTextChange = {},
+            modifier = Modifier.background(MaterialTheme.colorScheme.background)
+        )
         CharacterRecycler(characters = characters, modifier, onNavigateToDetails)
     }
 }

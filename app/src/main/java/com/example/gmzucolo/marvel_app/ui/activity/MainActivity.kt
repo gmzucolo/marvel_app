@@ -20,6 +20,7 @@ import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
 import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
+import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import kotlinx.coroutines.delay
@@ -56,7 +57,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = AppDestination.Search.route
+                            startDestination = AppDestination.Splash.route
                         ) {
                             composable(AppDestination.Splash.route) {
                                 SplashScreen()
@@ -72,7 +73,7 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                             composable(AppDestination.Favorite.route) {
-//                                FavoriteCharacterFragment()
+                                FavoriteScreen()
                             }
                             composable(AppDestination.Detail.route) {
                                 DetailCharacterScreen(

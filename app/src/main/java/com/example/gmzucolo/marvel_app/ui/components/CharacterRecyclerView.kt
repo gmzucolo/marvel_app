@@ -18,7 +18,7 @@ import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 fun CharacterRecycler(
     characters: List<CharacterModelSample>,
     modifier: Modifier,
-    onNavigateToDetails: () -> Unit = {}
+    onNavigateToDetails: (CharacterModelSample) -> Unit = {}
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -28,7 +28,7 @@ fun CharacterRecycler(
         items(characters) { c ->
             ItemComicCard(
                 character = c,
-                onItemCardClick = onNavigateToDetails
+                onItemCardClick = { onNavigateToDetails(c) }
             )
         }
     }

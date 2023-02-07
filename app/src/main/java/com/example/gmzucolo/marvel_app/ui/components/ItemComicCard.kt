@@ -56,7 +56,7 @@ fun ItemComicCardLightPreview() {
     MarvelappTheme(darkTheme = false) {
         ItemComicCard(
             CharacterModelSample(
-                id = 1,
+                id = "",
                 name = LoremIpsum(3).values.first(),
                 description = LoremIpsum(20).values.first()
             )
@@ -70,7 +70,7 @@ fun ItemComicCardDarkPreview() {
     MarvelappTheme(darkTheme = true) {
         ItemComicCard(
             CharacterModelSample(
-                id = 1,
+                id = "",
                 name = LoremIpsum(3).values.first(),
                 description = LoremIpsum(20).values.first()
             )

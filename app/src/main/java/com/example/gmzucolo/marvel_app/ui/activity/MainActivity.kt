@@ -69,16 +69,26 @@ class MainActivity : ComponentActivity() {
                             composable(AppDestination.Search.route) {
                                 SearchCharacterScreen(
                                     characters = sampleCharacters,
-                                    onNavigateToDetails = { navController.navigate(AppDestination.Detail.route) }
+                                    onNavigateToDetails = { character ->
+                                        navController.navigate(
+                                            "${AppDestination.Detail.route}/${character.id}"
+                                        )
+                                    }
                                 )
                             }
                             composable(AppDestination.Favorite.route) {
                                 FavoriteScreen()
                             }
-                            composable(AppDestination.Detail.route) {
-                                DetailCharacterScreen(
-                                    character = sampleCharacters.random(),
-                                    onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
+                            composable("${AppDestination.Detail.route}/{characterId}") {
+                                backStackEntry ->
+                                val id = backStackEntry.arguments?.getString("characterId")
+                                sampleCharacters.find {
+                                    it.id == id
+                                }?.let { character ->
+                                    DetailCharacterScreen(
+                                        character = character,
+                                        onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
+                                }
                             }
                         }
                     }

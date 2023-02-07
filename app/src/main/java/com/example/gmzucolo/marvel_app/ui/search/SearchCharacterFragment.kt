@@ -33,7 +33,7 @@ class SearchCharacterFragment : ComponentActivity() {
 fun SearchCharacterScreen(
     modifier: Modifier = Modifier,
     characters: List<CharacterModelSample> = emptyList(),
-    onNavigateToDetails: () -> Unit = {}
+    onNavigateToDetails: (CharacterModelSample) -> Unit = {}
 ) {
     Column() {
         SearchTextField(

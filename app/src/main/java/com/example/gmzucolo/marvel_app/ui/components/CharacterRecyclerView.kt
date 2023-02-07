@@ -1,5 +1,6 @@
 package com.example.gmzucolo.marvel_app.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,12 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
-import com.example.gmzucolo.marvel_app.data.sample.sampleCharacteres
+import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 @Composable
 fun CharacterRecycler(
-    characters: List<CharacterModelSample>
+    characters: List<CharacterModelSample>,
+    modifier: Modifier,
+    onNavigateToDetails: () -> Unit = {}
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -23,27 +26,32 @@ fun CharacterRecycler(
         contentPadding = PaddingValues(bottom = 8.dp)
     ) {
         items(characters) { c ->
-            ItemComicCard(character = c)
+            ItemComicCard(
+                character = c,
+                onItemCardClick = onNavigateToDetails
+            )
         }
     }
 }
 
 @Preview
 @Composable
-fun CharacterRecyclerLightPreview() {
+fun CharacterRecyclerLightPreview(onCharacterClick: () -> Unit = {}) {
     MarvelappTheme(darkTheme = false) {
         CharacterRecycler(
-            characters = sampleCharacteres
-        )
+            characters = sampleCharacters,
+            modifier = Modifier.clickable { onCharacterClick() })
     }
 }
 
+
 @Preview
 @Composable
-fun CharacterRecyclerDarkPreview() {
+fun CharacterRecyclerDarkPreview(onCharacterClick: () -> Unit = {}) {
     MarvelappTheme(darkTheme = true) {
         CharacterRecycler(
-            characters = sampleCharacteres
-        )
+            characters = sampleCharacters,
+            modifier = Modifier.clickable { onCharacterClick() })
     }
 }
+

@@ -13,7 +13,8 @@ import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 class BottomAppBarItem(
     val label: String,
-    val icon: ImageVector
+    val icon: ImageVector,
+    val route: String
 )
 
 @Composable

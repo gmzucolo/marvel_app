@@ -60,11 +60,7 @@ class MainActivity : ComponentActivity() {
                             startDestination = AppDestination.Splash.route
                         ) {
                             composable(AppDestination.Splash.route) {
-                                SplashScreen()
-                                LaunchedEffect(Unit) {
-                                    delay(5000L)
-                                    navController.navigate(AppDestination.Search.route)
-                                }
+                                AnimatedSplashScreen(navController)
                             }
                             composable(AppDestination.Search.route) {
                                 SearchCharacterScreen(
@@ -88,6 +84,8 @@ class MainActivity : ComponentActivity() {
                                     DetailCharacterScreen(
                                         character = character,
                                         onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
+                                } ?: LaunchedEffect(Unit) {
+                                    navController.navigateUp()
                                 }
                             }
                         }

@@ -23,8 +23,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.gmzucolo.marvel_app.R
 import com.example.gmzucolo.marvel_app.navigation.AppDestination
+import com.example.gmzucolo.marvel_app.navigation.SetupNavGraph
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import kotlinx.coroutines.delay
 
@@ -34,7 +36,8 @@ class SplashActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MarvelappTheme {
-                SplashScreen()
+                val navController = rememberNavController()
+                SetupNavGraph(navController = navController)
             }
         }
     }

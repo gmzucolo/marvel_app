@@ -11,7 +11,6 @@ import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 
 val sampleCharacters = List(10) { index ->
     CharacterModelSample(
-        id = "",
         name = LoremIpsum(3).values.first(),
         description = LoremIpsum(20).values.first()
     )

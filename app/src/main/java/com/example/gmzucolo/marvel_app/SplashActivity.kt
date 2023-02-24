@@ -1,4 +1,4 @@
-package com.example.gmzucolo.marvel_app.ui.activity
+package com.example.gmzucolo.marvel_app
 
 import android.annotation.SuppressLint
 import android.os.Bundle

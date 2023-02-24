@@ -15,7 +15,9 @@ import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
 import com.example.gmzucolo.marvel_app.ui.components.CharacterRecycler
 import com.example.gmzucolo.marvel_app.ui.components.SearchTextField
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchCharacterFragment : ComponentActivity() {
     val viewModel: SearchCharacterViewModel by viewModels()
 

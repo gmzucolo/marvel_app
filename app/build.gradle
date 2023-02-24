@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 // +---------------------------+
@@ -18,6 +20,8 @@ var androidx_material3 = '1.0.0-alpha14'
 var android_systembars_ui_controler = '0.24.9-beta'
 var google_android_material = '1.6.1'
 var compose_navigation = '2.5.0'
+var coil = '2.2.2'
+var hilt = '2.44'
 
 android {
     namespace 'com.example.gmzucolo.marvel_app'
@@ -105,5 +109,13 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.3.6"
 
     //Coil
-    implementation 'io.coil-kt:coil-compose:2.2.2'
+    implementation "io.coil-kt:coil-compose:$coil"
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt"
+}
+
+kapt {
+    correctErrorTypes true
 }

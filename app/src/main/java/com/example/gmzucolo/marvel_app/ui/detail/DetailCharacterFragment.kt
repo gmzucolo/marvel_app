@@ -24,7 +24,9 @@ import com.example.gmzucolo.marvel_app.R
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
 import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailCharacterFragment : ComponentActivity() {
     val viewModel: DetailCharacterViewModel by viewModels()
 

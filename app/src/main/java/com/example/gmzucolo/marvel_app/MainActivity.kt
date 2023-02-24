@@ -1,4 +1,4 @@
-package com.example.gmzucolo.marvel_app.ui.activity
+package com.example.gmzucolo.marvel_app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -23,8 +23,9 @@ import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

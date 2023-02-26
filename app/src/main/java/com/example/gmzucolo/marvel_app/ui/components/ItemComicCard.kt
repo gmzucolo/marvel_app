@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.gmzucolo.marvel_app.R
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
+import com.example.gmzucolo.marvel_app.util.limitDescription
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -45,7 +46,11 @@ fun ItemComicCard(
                 contentDescription = "", modifier = Modifier.fillMaxWidth()
             )
             Text(text = character.name, modifier = Modifier.padding(vertical = 8.dp))
-            character.description?.let { Text(text = it) }
+            if (character.description == "") {
+                Text(text = "Esse personagem não possui comics")
+            } else {
+                character.description?.let { Text(text = it.limitDescription(100)) }
+            }
         }
     }
 }

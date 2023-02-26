@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">marvel-app</string>
+    <string name="text_description_empty">vazio</string>
 </resources>

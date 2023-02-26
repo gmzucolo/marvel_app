@@ -3,6 +3,7 @@ package com.example.gmzucolo.marvel_app.data.sample
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
@@ -18,6 +19,11 @@ val sampleCharacters = List(10) { index ->
 
 val bottomAppBarItems = listOf(
     BottomAppBarItem(
+        label = "Home",
+        icon = Icons.Filled.Home,
+        destination = AppDestination.Search
+    ),
+    BottomAppBarItem(
         label = "Search",
         icon = Icons.Filled.Search,
         destination = AppDestination.Search
@@ -26,10 +32,5 @@ val bottomAppBarItems = listOf(
         label = "Favorites",
         icon = Icons.Filled.Favorite,
         destination = AppDestination.Favorite
-    ),
-    BottomAppBarItem(
-        label = "Details",
-        icon = Icons.Filled.AccountBox,
-        destination = AppDestination.Detail
     )
 )

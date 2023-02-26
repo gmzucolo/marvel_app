@@ -21,10 +21,11 @@ import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
 import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
+import com.example.gmzucolo.marvel_app.ui.list.ListCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,14 +59,24 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = AppDestination.Splash.route
+                            startDestination = AppDestination.Home.route
                         ) {
-                            composable(AppDestination.Splash.route) {
-                                SplashScreen()
-                                LaunchedEffect(Unit) {
-                                    delay(5000L)
-                                    navController.navigate(AppDestination.Search.route)
-                                }
+//                            composable(AppDestination.Splash.route) {
+//                                SplashScreen()
+//                                LaunchedEffect(Unit) {
+//                                    delay(5000L)
+//                                    navController.navigate(AppDestination.Search.route)
+//                                }
+//                            }
+                            composable(AppDestination.Home.route) {
+                                ListCharacterScreen(
+                                    characters = sampleCharacters,
+                                    onNavigateToDetails = { character ->
+                                        navController.navigate(
+                                            "${AppDestination.Detail.route}/${character.id}"
+                                        )
+                                    }
+                                )
                             }
                             composable(AppDestination.Search.route) {
                                 SearchCharacterScreen(
@@ -80,8 +91,7 @@ class MainActivity : ComponentActivity() {
                             composable(AppDestination.Favorite.route) {
                                 FavoriteScreen()
                             }
-                            composable("${AppDestination.Detail.route}/{characterId}") {
-                                backStackEntry ->
+                            composable("${AppDestination.Detail.route}/{characterId}") { backStackEntry ->
                                 val id = backStackEntry.arguments?.getString("characterId")
                                 sampleCharacters.find {
                                     it.id == id

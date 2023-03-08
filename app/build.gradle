@@ -86,9 +86,6 @@ dependencies {
     // MATERIAL 3 - MATERIAL YOU STATUS BAR
     implementation "com.google.accompanist:accompanist-systemuicontroller:$android_systembars_ui_controler"
 
-    // ICON EXTENDED
-    // implementation "androidx.compose.material:material-icons-extended:$androidx_icons_extended"
-
     // COMPOSE NAVIGATION
     implementation "androidx.navigation:navigation-compose:$compose_navigation"
 
@@ -114,6 +111,10 @@ dependencies {
     //Hilt
     implementation "com.google.dagger:hilt-android:$hilt"
     kapt "com.google.dagger:hilt-android-compiler:$hilt"
+
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+    implementation "androidx.paging:paging-compose:1.0.0-alpha17"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.12-rc"
 }
 
 kapt {

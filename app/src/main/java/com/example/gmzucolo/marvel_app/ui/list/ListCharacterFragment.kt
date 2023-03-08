@@ -8,30 +8,31 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
 import com.example.gmzucolo.marvel_app.ui.components.CharacterRecycler
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ListCharacterFragment : ComponentActivity() {
-    val viewModel: ListCharacterViewModel by viewModels()
+//    val viewModel: ListCharacterViewModel by viewModels()
+//    private val characterAdapter by lazy { CharacterAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MarvelappTheme {
-                ListCharacterScreen()
-            }
-        }
+//        setContent {
+//            MarvelappTheme {
+//                ListCharacterScreen()
+//            }
+//        }
     }
 }
 
 @Composable
 fun ListCharacterScreen(
     modifier: Modifier = Modifier,
-    characters: List<CharacterModelSample> = emptyList(),
-    onNavigateToDetails: (CharacterModelSample) -> Unit = {}
+//    viewModel: ListCharacterViewModel,
+    characters: List<com.example.gmzucolo.marvel_app.data.model.Character> = emptyList(),
+    onNavigateToDetails: (com.example.gmzucolo.marvel_app.data.model.Character) -> Unit = {}
 ) {
     Column() {
         CharacterRecycler(characters = characters, modifier = modifier, onNavigateToDetails)
@@ -41,15 +42,15 @@ fun ListCharacterScreen(
 @Preview
 @Composable
 fun ListCharacterScreenLightPreview() {
-    MarvelappTheme(darkTheme = false) {
-        ListCharacterScreen()
-    }
+//    MarvelappTheme(darkTheme = false) {
+//        ListCharacterScreen()
+//    }
 }
 
 @Preview
 @Composable
 fun ListCharacterScreenDarkPreview() {
-    MarvelappTheme(darkTheme = true) {
-        ListCharacterScreen()
-    }
+//    MarvelappTheme(darkTheme = true) {
+//        ListCharacterScreen()
+//    }
 }

@@ -1,6 +1,6 @@
 package com.example.gmzucolo.marvel_app.data.model.comic
 
-import com.example.gmzucolo.marvel_app.data.model.thumbnail.ThumbnailModel
+import com.example.gmzucolo.marvel_app.data.model.Thumbnail
 import com.google.gson.annotations.SerializedName
 
 data class ComicModel(
@@ -11,5 +11,5 @@ data class ComicModel(
     @SerializedName("description")
     val description: String,
     @SerializedName("thumbnail")
-    val thumbnailModel: ThumbnailModel
+    val thumbnail: Thumbnail
 ) : java.io.Serializable

@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.example.gmzucolo.marvel_app.R
-import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
+import com.example.gmzucolo.marvel_app.data.model.Thumbnail
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import com.example.gmzucolo.marvel_app.util.limitDescription
 
@@ -24,7 +24,7 @@ import com.example.gmzucolo.marvel_app.util.limitDescription
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemComicCard(
-    character: CharacterModelSample,
+    character: com.example.gmzucolo.marvel_app.data.model.Character,
     modifier: Modifier = Modifier,
     onItemCardClick: () -> Unit = {}
 ) {
@@ -60,10 +60,11 @@ fun ItemComicCard(
 fun ItemComicCardLightPreview() {
     MarvelappTheme(darkTheme = false) {
         ItemComicCard(
-            CharacterModelSample(
-                id = "",
+            com.example.gmzucolo.marvel_app.data.model.Character(
+                id = 0,
                 name = LoremIpsum(3).values.first(),
-                description = LoremIpsum(20).values.first()
+                description = LoremIpsum(20).values.first(),
+                thumbnail = Thumbnail("", "")
             )
         )
     }
@@ -74,10 +75,11 @@ fun ItemComicCardLightPreview() {
 fun ItemComicCardDarkPreview() {
     MarvelappTheme(darkTheme = true) {
         ItemComicCard(
-            CharacterModelSample(
-                id = "",
+            com.example.gmzucolo.marvel_app.data.model.Character(
+                id = 0,
                 name = LoremIpsum(3).values.first(),
-                description = LoremIpsum(20).values.first()
+                description = LoremIpsum(20).values.first(),
+                thumbnail = Thumbnail("", "")
             )
         )
     }

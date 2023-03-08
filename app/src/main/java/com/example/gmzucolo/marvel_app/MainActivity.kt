@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -22,9 +23,11 @@ import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
 import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
 import com.example.gmzucolo.marvel_app.ui.list.ListCharacterScreen
+import com.example.gmzucolo.marvel_app.ui.list.MarvelCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -69,24 +72,25 @@ class MainActivity : ComponentActivity() {
 //                                }
 //                            }
                             composable(AppDestination.Home.route) {
-                                ListCharacterScreen(
-                                    characters = sampleCharacters,
-                                    onNavigateToDetails = { character ->
-                                        navController.navigate(
-                                            "${AppDestination.Detail.route}/${character.id}"
-                                        )
-                                    }
-                                )
+                                MarvelCharacterScreen(viewModel())
+//                                ListCharacterScreen(
+//                                    characters = ListCharacterViewModel().list,
+//                                    onNavigateToDetails = { character ->
+//                                        navController.navigate(
+//                                            "${AppDestination.Detail.route}/${character.id}"
+//                                        )
+//                                    }
+//                                )
                             }
                             composable(AppDestination.Search.route) {
-                                SearchCharacterScreen(
-                                    characters = sampleCharacters,
-                                    onNavigateToDetails = { character ->
-                                        navController.navigate(
-                                            "${AppDestination.Detail.route}/${character.id}"
-                                        )
-                                    }
-                                )
+//                                SearchCharacterScreen(
+//                                    characters = sampleCharacters,
+//                                    onNavigateToDetails = { character ->
+//                                        navController.navigate(
+//                                            "${AppDestination.Detail.route}/${character.id}"
+//                                        )
+//                                    }
+//                                )
                             }
                             composable(AppDestination.Favorite.route) {
                                 FavoriteScreen()

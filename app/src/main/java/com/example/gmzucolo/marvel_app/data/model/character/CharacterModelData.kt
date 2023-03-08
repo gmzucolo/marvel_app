@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class CharacterModelData(
     @SerializedName("results")
-    val results: List<CharacterModel>
+    val results: List<Character>
 ) : java.io.Serializable

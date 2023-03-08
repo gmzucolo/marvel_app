@@ -10,8 +10,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
-import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
 import com.example.gmzucolo.marvel_app.ui.components.CharacterRecycler
 import com.example.gmzucolo.marvel_app.ui.components.SearchTextField
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
@@ -34,8 +32,8 @@ class SearchCharacterFragment : ComponentActivity() {
 @Composable
 fun SearchCharacterScreen(
     modifier: Modifier = Modifier,
-    characters: List<CharacterModelSample> = emptyList(),
-    onNavigateToDetails: (CharacterModelSample) -> Unit = {}
+    characters: List<com.example.gmzucolo.marvel_app.data.model.Character> = emptyList(),
+    onNavigateToDetails: (com.example.gmzucolo.marvel_app.data.model.Character) -> Unit = {}
 ) {
     Column() {
         SearchTextField(
@@ -49,15 +47,15 @@ fun SearchCharacterScreen(
 @Preview
 @Composable
 fun SearchCharacterScreenLightPreview() {
-    MarvelappTheme(darkTheme = false) {
-        SearchCharacterScreen(characters = sampleCharacters)
-    }
+//    MarvelappTheme(darkTheme = false) {
+//        SearchCharacterScreen(characters = sampleCharacters)
+//    }
 }
 
 @Preview
 @Composable
 fun SearchCharacterScreenDarkPreview() {
-    MarvelappTheme(darkTheme = true) {
-        SearchCharacterScreen(characters = sampleCharacters)
-    }
+//    MarvelappTheme(darkTheme = true) {
+//        SearchCharacterScreen(characters = sampleCharacters)
+//    }
 }

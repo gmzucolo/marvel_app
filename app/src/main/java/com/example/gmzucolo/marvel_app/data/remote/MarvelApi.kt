@@ -25,8 +25,8 @@ interface MarvelApi {
     ): Response
 
     companion object {
-        const val API_KEY = "SUA_PUBLIC_KEY"
-        const val PRIVATE_KEY = "SUA_PRIVATE_KEY"
+        const val API_KEY = "1c9a9078aa51928c6a1fc35082af9113"
+        const val PRIVATE_KEY = "90e2d0589a6b6675159cf2ddb031ea711968f0fc"
         fun getService(): MarvelApi {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
@@ -54,7 +54,7 @@ interface MarvelApi {
 
             val gson = GsonBuilder().setLenient().create()
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://gateway.marvel.com/v1/public/")
+                .baseUrl("https://gateway.marvel.com/v1/public/")
                 .addConverterFactory(
                     GsonConverterFactory.create(gson)
                 )

@@ -62,7 +62,6 @@ object Module {
 
     @Singleton
     @Provides
-    //igual ao metodo getService
     fun provideServiceApi(retrofit: Retrofit): ServiceApi {
         return retrofit.create(ServiceApi::class.java)
     }

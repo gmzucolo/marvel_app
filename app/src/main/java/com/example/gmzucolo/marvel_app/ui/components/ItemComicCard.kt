@@ -13,18 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.example.gmzucolo.marvel_app.R
-import com.example.gmzucolo.marvel_app.data.model.Thumbnail
-import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
+import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
 import com.example.gmzucolo.marvel_app.util.limitDescription
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemComicCard(
-    character: com.example.gmzucolo.marvel_app.data.model.Character,
+    character: CharacterModel,
     modifier: Modifier = Modifier,
     onItemCardClick: () -> Unit = {}
 ) {
@@ -58,29 +56,29 @@ fun ItemComicCard(
 @Preview
 @Composable
 fun ItemComicCardLightPreview() {
-    MarvelappTheme(darkTheme = false) {
-        ItemComicCard(
-            com.example.gmzucolo.marvel_app.data.model.Character(
-                id = 0,
-                name = LoremIpsum(3).values.first(),
-                description = LoremIpsum(20).values.first(),
-                thumbnail = Thumbnail("", "")
-            )
-        )
-    }
+//    MarvelappTheme(darkTheme = false) {
+//        ItemComicCard(
+//            com.example.gmzucolo.marvel_app.data.model.Character(
+//                id = 0,
+//                name = LoremIpsum(3).values.first(),
+//                description = LoremIpsum(20).values.first(),
+//                thumbnail = Thumbnail("", "")
+//            )
+//        )
+//    }
 }
 
 @Preview
 @Composable
 fun ItemComicCardDarkPreview() {
-    MarvelappTheme(darkTheme = true) {
-        ItemComicCard(
-            com.example.gmzucolo.marvel_app.data.model.Character(
-                id = 0,
-                name = LoremIpsum(3).values.first(),
-                description = LoremIpsum(20).values.first(),
-                thumbnail = Thumbnail("", "")
-            )
-        )
-    }
+//    MarvelappTheme(darkTheme = true) {
+//        ItemComicCard(
+//            com.example.gmzucolo.marvel_app.data.model.Character(
+//                id = 0,
+//                name = LoremIpsum(3).values.first(),
+//                description = LoremIpsum(20).values.first(),
+//                thumbnail = Thumbnail("", "")
+//            )
+//        )
+//    }
 }

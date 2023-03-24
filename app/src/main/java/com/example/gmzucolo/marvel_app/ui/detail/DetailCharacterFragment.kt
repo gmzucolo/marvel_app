@@ -21,8 +21,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.gmzucolo.marvel_app.R
-import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelSample
-import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,16 +31,16 @@ class DetailCharacterFragment : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MarvelappTheme() {
-                DetailCharacterScreen(character = sampleCharacters.random())
-            }
+//            MarvelappTheme() {
+//                DetailCharacterScreen(character = sampleCharacters.random())
+//            }
         }
     }
 }
 
 @Composable
 fun DetailCharacterScreen(
-    character: CharacterModelSample,
+//    character: CharacterModelSample,
     modifier: Modifier = Modifier,
     onFavoriteClick: () -> Unit = {}
 ) {
@@ -52,25 +50,25 @@ fun DetailCharacterScreen(
             .verticalScroll(rememberScrollState())
             .background(MaterialTheme.colorScheme.background)
     ) {
-        character.image?.let {
-            AsyncImage(
-                model = character.image,
-                contentDescription = character.description,
-                modifier = Modifier
-                    .height(200.dp)
-                    .fillMaxWidth(),
-                placeholder = painterResource(id = R.drawable.placeholder),
-                contentScale = ContentScale.Crop
-            )
-        }
+//        character.image?.let {
+//            AsyncImage(
+//                model = character.image,
+//                contentDescription = character.description,
+//                modifier = Modifier
+//                    .height(200.dp)
+//                    .fillMaxWidth(),
+//                placeholder = painterResource(id = R.drawable.placeholder),
+//                contentScale = ContentScale.Crop
+//            )
+//        }
         Column(
             Modifier
                 .padding(16.dp)
                 .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text(text = character.name, fontSize = 24.sp)
-            character.description?.let { Text(text = it, fontSize = 18.sp) }
+//            Text(text = character.name, fontSize = 24.sp)
+//            character.description?.let { Text(text = it, fontSize = 18.sp) }
             Button(
                 onClick = { onFavoriteClick() },
                 Modifier.fillMaxWidth(),
@@ -87,7 +85,7 @@ fun DetailCharacterScreen(
 @Composable
 fun DetailCharacterScreenLightPreview() {
     MarvelappTheme(darkTheme = false) {
-        DetailCharacterScreen(character = sampleCharacters.random())
+//        DetailCharacterScreen(character = sampleCharacters.random())
     }
 }
 
@@ -95,6 +93,6 @@ fun DetailCharacterScreenLightPreview() {
 @Composable
 fun DetailCharacterScreenDarkPreview() {
     MarvelappTheme(darkTheme = true) {
-        DetailCharacterScreen(character = sampleCharacters.random())
+//        DetailCharacterScreen(character = sampleCharacters.random())
     }
 }

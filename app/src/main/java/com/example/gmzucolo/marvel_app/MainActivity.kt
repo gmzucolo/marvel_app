@@ -3,6 +3,7 @@ package com.example.gmzucolo.marvel_app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,7 +17,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.gmzucolo.marvel_app.data.sample.bottomAppBarItems
-import com.example.gmzucolo.marvel_app.data.sample.sampleCharacters
 import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
@@ -24,6 +24,7 @@ import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
 import com.example.gmzucolo.marvel_app.ui.list.ListCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.list.MarvelCharacterScreen
+import com.example.gmzucolo.marvel_app.ui.list.MarvelCharactersViewModel
 import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -96,14 +97,14 @@ class MainActivity : ComponentActivity() {
                                 FavoriteScreen()
                             }
                             composable("${AppDestination.Detail.route}/{characterId}") { backStackEntry ->
-                                val id = backStackEntry.arguments?.getString("characterId")
-                                sampleCharacters.find {
-                                    it.id == id
-                                }?.let { character ->
-                                    DetailCharacterScreen(
-                                        character = character,
-                                        onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
-                                }
+//                                val id = backStackEntry.arguments?.getString("characterId")
+//                                sampleCharacters.find {
+//                                    it.id == id
+//                                }?.let { character ->
+//                                    DetailCharacterScreen(
+//                                        character = character,
+//                                        onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
+//                                }
                             }
                         }
                     }

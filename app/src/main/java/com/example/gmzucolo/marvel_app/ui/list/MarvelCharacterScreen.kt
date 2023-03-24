@@ -16,8 +16,10 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import coil.compose.rememberAsyncImagePainter
+import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import dagger.hilt.android.AndroidEntryPoint
 
 @Composable
 fun MarvelCharacterScreen(
@@ -60,7 +62,7 @@ fun MarvelCharacterScreen(
 
 @Composable
 private fun CharacterItem(
-    character: com.example.gmzucolo.marvel_app.data.model.Character
+    character: CharacterModel
 ) {
     Row(
         modifier = Modifier
@@ -68,7 +70,7 @@ private fun CharacterItem(
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        val thumbnail = character.thumbnail
+        val thumbnail = character.thumbnailModel
         Image(
             painter = rememberAsyncImagePainter(
                 "${thumbnail.pathSec}.${thumbnail.extension}"

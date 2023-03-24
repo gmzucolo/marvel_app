@@ -9,13 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 @Composable
 fun CharacterRecycler(
-    characters: List<com.example.gmzucolo.marvel_app.data.model.Character>,
+    characters: List<CharacterModel>,
     modifier: Modifier,
-    onNavigateToDetails: (com.example.gmzucolo.marvel_app.data.model.Character) -> Unit = {}
+    onNavigateToDetails: (CharacterModel) -> Unit = {}
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
 import com.example.gmzucolo.marvel_app.ui.components.CharacterRecycler
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,8 +32,8 @@ class ListCharacterFragment : ComponentActivity() {
 fun ListCharacterScreen(
     modifier: Modifier = Modifier,
 //    viewModel: ListCharacterViewModel,
-    characters: List<com.example.gmzucolo.marvel_app.data.model.Character> = emptyList(),
-    onNavigateToDetails: (com.example.gmzucolo.marvel_app.data.model.Character) -> Unit = {}
+    characters: List<CharacterModel> = emptyList(),
+    onNavigateToDetails: (CharacterModel) -> Unit = {}
 ) {
     Column() {
         CharacterRecycler(characters = characters, modifier = modifier, onNavigateToDetails)

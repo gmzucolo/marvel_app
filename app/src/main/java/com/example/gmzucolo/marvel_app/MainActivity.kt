@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
 //                                }
 //                            }
                             composable(AppDestination.Home.route) {
-                                MarvelCharacterScreen(viewModel())
+                                MarvelCharacterScreen()
 //                                ListCharacterScreen(
 //                                    characters = ListCharacterViewModel().list,
 //                                    onNavigateToDetails = { character ->

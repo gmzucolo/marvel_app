@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
@@ -23,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @Composable
 fun MarvelCharacterScreen(
-    viewModel: MarvelCharactersViewModel
+    viewModel: MarvelCharactersViewModel = hiltViewModel()
 ) {
     val lazyPagingItems = viewModel.charactersPagedListFlow.collectAsLazyPagingItems()
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = false)

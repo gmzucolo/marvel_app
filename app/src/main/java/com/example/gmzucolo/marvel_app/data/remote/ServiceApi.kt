@@ -16,12 +16,4 @@ interface ServiceApi {
     suspend fun allCharacters(
         @Query("offset") offset: Int? = 0
     ): Response<CharacterModelResponse>
-
-//    @GET("characters/{characterId}/comics")
-//    suspend fun getComics(
-//        @Path(
-//            value = "characterId",
-//            encoded = true
-//        ) characterId: Int
-//    ): Response<ComicModelResponse>
 }

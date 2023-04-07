@@ -19,19 +19,19 @@
 //
 //interface MarvelApi {
 //
-////    @GET("characters")
-////    suspend fun listByStartsWith(
-////        @Query("nameStartsWith") nameStartWith: String? = null
-////    ): retrofit2.Response<Response>
+//    @GET("characters")
+//    suspend fun listByStartsWith(
+//        @Query("nameStartsWith") nameStartWith: String? = null
+//    ): retrofit2.Response<Response>
 //
-////    @GET("characters")
-////    suspend fun allCharacters(
-////        @Query("offset") offset: Int? = 0
-////    ): Response
+//    @GET("characters")
+//    suspend fun allCharacters(
+//        @Query("offset") offset: Int? = 0
+//    ): Response
 //
 //    companion object {
-////        const val API_KEY = "1c9a9078aa51928c6a1fc35082af9113"
-////        const val PRIVATE_KEY = "90e2d0589a6b6675159cf2ddb031ea711968f0fc"
+//        const val API_KEY = "1c9a9078aa51928c6a1fc35082af9113"
+//        const val PRIVATE_KEY = "90e2d0589a6b6675159cf2ddb031ea711968f0fc"
 //        fun getService(): MarvelApi {
 //            val logging = HttpLoggingInterceptor()
 //            logging.level = HttpLoggingInterceptor.Level.BODY
@@ -57,14 +57,14 @@
 //                )
 //            }
 //
-////            val gson = GsonBuilder().setLenient().create()
-////            val retrofit = Retrofit.Builder()
-////                .baseUrl("https://gateway.marvel.com/v1/public/")
-////                .addConverterFactory(
-////                    GsonConverterFactory.create(gson)
-////                )
-////                .client(httpClient.build())
-////                .build()
+//            val gson = GsonBuilder().setLenient().create()
+//            val retrofit = Retrofit.Builder()
+//                .baseUrl("https://gateway.marvel.com/v1/public/")
+//                .addConverterFactory(
+//                    GsonConverterFactory.create(gson)
+//                )
+//                .client(httpClient.build())
+//                .build()
 //
 //    val gson = GsonBuilder().setLenient().create()
 //    val retrofit = Retrofit.Builder()
@@ -78,11 +78,11 @@
 //            return retrofit.create(MarvelApi::class.java)
 //        }
 //
-////        private fun md5(input:String): String {
-////            val md = MessageDigest.getInstance("MD5")
-////            return BigInteger(1, md.digest(input.toByteArray()))
-////                .toString(16)
-////                .padStart(32, '0')
-////        }
+//        private fun md5(input:String): String {
+//            val md = MessageDigest.getInstance("MD5")
+//            return BigInteger(1, md.digest(input.toByteArray()))
+//                .toString(16)
+//                .padStart(32, '0')
+//        }
 //    }
 //}

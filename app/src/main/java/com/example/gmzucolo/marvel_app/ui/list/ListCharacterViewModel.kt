@@ -32,7 +32,7 @@ class ListCharacterViewModel @Inject constructor(
 
     private suspend fun safeFetch() {
         try {
-            val response = repository.listByStartsWith()
+            val response = repository.listByStartsWith(null)
             _list.value = handleResponse(response)
         } catch (t: Throwable) {
             when (t) {

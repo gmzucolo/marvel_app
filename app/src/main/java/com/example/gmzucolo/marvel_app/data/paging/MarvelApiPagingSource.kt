@@ -27,14 +27,11 @@ class MarvelApiPagingSource(
         return try {
             val page = params.key ?: 0
             val offset = page * PAGE_SIZE
-//            val response = marvelApi.allCharacters(offset = offset)
             val response = repository.listAllCharacters(offset = offset)
             val nextKey =
-//                if (offset >= response.data.total) null
                 if (offset >= response.body()!!.data.total) null
                 else page + 1
             return LoadResult.Page(
-//                data = response.data.results,
                 data = response.body()!!.data.results,
                 prevKey = null, // Only paging forward.
                 nextKey = nextKey

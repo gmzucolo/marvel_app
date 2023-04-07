@@ -3,7 +3,6 @@ package com.example.gmzucolo.marvel_app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -11,7 +10,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -20,15 +18,10 @@ import com.example.gmzucolo.marvel_app.data.sample.bottomAppBarItems
 import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
-import com.example.gmzucolo.marvel_app.ui.detail.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
-import com.example.gmzucolo.marvel_app.ui.list.ListCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.list.MarvelCharacterScreen
-import com.example.gmzucolo.marvel_app.ui.list.MarvelCharactersViewModel
-import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

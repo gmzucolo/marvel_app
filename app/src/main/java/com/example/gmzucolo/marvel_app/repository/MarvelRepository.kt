@@ -9,10 +9,10 @@ import javax.inject.Singleton
 interface MarvelRepository {
 
     suspend fun listByStartsWith(nameStartsWith: String?): Response<CharacterModelResponse>
-
     suspend fun listAllCharacters(offset: Int): Response<CharacterModelResponse>
 
 }
+
 @Singleton
 class MarvelRepositoryImpl @Inject constructor(
     private val api: ServiceApi

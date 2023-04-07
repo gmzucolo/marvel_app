@@ -20,7 +20,6 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import dagger.hilt.android.AndroidEntryPoint
 
 @Composable
 fun MarvelCharacterScreen(

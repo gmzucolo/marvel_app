@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -27,6 +28,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContent {
             val navController = rememberNavController()
             val currentBackStackEntryAsState by navController.currentBackStackEntryAsState()
@@ -58,38 +60,13 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             startDestination = AppDestination.Home.route
                         ) {
-//                            composable(AppDestination.Splash.route) {
-//                                SplashScreen()
-//                                LaunchedEffect(Unit) {
-//                                    delay(5000L)
-//                                    navController.navigate(AppDestination.Search.route)
-//                                }
-//                            }
                             composable(AppDestination.Home.route) {
                                 MarvelCharacterScreen()
-//                                ListCharacterScreen(
-//                                    characters = ListCharacterViewModel().list,
-//                                    onNavigateToDetails = { character ->
-//                                        navController.navigate(
-//                                            "${AppDestination.Detail.route}/${character.id}"
-//                                        )
-//                                    }
-//                                )
-                            }
-                            composable(AppDestination.Search.route) {
-//                                SearchCharacterScreen(
-//                                    characters = sampleCharacters,
-//                                    onNavigateToDetails = { character ->
-//                                        navController.navigate(
-//                                            "${AppDestination.Detail.route}/${character.id}"
-//                                        )
-//                                    }
-//                                )
                             }
                             composable(AppDestination.Favorite.route) {
                                 FavoriteScreen()
                             }
-                            composable("${AppDestination.Detail.route}/{characterId}") { backStackEntry ->
+//                            composable("${AppDestination.Detail.route}/{characterId}") { backStackEntry ->
 //                                val id = backStackEntry.arguments?.getString("characterId")
 //                                sampleCharacters.find {
 //                                    it.id == id
@@ -98,7 +75,7 @@ class MainActivity : ComponentActivity() {
 //                                        character = character,
 //                                        onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
 //                                }
-                            }
+//                            }
                         }
                     }
                 }

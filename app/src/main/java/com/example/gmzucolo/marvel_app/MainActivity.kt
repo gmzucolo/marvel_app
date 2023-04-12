@@ -23,6 +23,7 @@ import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
 import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
 import com.example.gmzucolo.marvel_app.ui.list.MarvelCharacterScreen
+import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -64,6 +65,9 @@ class MainActivity : ComponentActivity() {
                         ) {
                             composable(AppDestination.Home.route) {
                                 MarvelCharacterScreen()
+                            }
+                            composable(AppDestination.Search.route) {
+                                SearchCharacterScreen()
                             }
                             composable(AppDestination.Favorite.route) {
                                 FavoriteScreen()

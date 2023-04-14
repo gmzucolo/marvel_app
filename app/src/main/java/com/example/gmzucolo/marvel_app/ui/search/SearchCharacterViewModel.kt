@@ -1,12 +1,14 @@
 package com.example.gmzucolo.marvel_app.ui.search
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModelResponse
 import com.example.gmzucolo.marvel_app.repository.MarvelRepository
 import com.example.gmzucolo.marvel_app.util.ResourceState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
 import javax.inject.Inject
@@ -20,7 +22,9 @@ class SearchCharacterViewModel @Inject constructor(
         MutableStateFlow<ResourceState<CharacterModelResponse>>(ResourceState.Empty())
     val searchCharacter: StateFlow<ResourceState<CharacterModelResponse>> = _searchCharacter
 
-    private suspend fun searchCharacter(nameStartsWith: String?) {
+    fun fetch(nameStartsWith: String) = viewModelScope.launch { safeFetch(nameStartsWith) }
+
+    private suspend fun safeFetch(nameStartsWith: String?) {
         _searchCharacter.value = ResourceState.Loading()
         try {
             val response = repository.listByStartsWith(nameStartsWith)

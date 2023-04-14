@@ -21,9 +21,9 @@ import com.example.gmzucolo.marvel_app.data.sample.bottomAppBarItems
 import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
-import com.example.gmzucolo.marvel_app.ui.favorite.FavoriteScreen
-import com.example.gmzucolo.marvel_app.ui.list.MarvelCharacterScreen
-import com.example.gmzucolo.marvel_app.ui.search.SearchCharacterScreen
+import com.example.gmzucolo.marvel_app.ui.screens.FavoriteScreen
+import com.example.gmzucolo.marvel_app.ui.screens.MarvelCharacterScreen
+import com.example.gmzucolo.marvel_app.ui.screens.SearchCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 import dagger.hilt.android.AndroidEntryPoint
 

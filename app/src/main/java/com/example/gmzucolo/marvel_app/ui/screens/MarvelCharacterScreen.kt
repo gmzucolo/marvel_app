@@ -1,4 +1,4 @@
-package com.example.gmzucolo.marvel_app.ui.list
+package com.example.gmzucolo.marvel_app.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,6 +18,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import coil.compose.rememberAsyncImagePainter
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
+import com.example.gmzucolo.marvel_app.ui.viewmodels.MarvelCharactersViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 

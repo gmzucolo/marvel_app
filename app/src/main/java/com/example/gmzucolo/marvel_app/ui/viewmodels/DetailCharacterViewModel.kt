@@ -1,4 +1,4 @@
-package com.example.gmzucolo.marvel_app.ui.detail
+package com.example.gmzucolo.marvel_app.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 

@@ -1,4 +1,4 @@
-package com.example.gmzucolo.marvel_app.ui.search
+package com.example.gmzucolo.marvel_app.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,6 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.gmzucolo.marvel_app.data.model.character.CharacterModel
 import com.example.gmzucolo.marvel_app.ui.components.SearchTextField
+import com.example.gmzucolo.marvel_app.ui.viewmodels.SearchCharacterViewModel
 import com.example.gmzucolo.marvel_app.ui.theme.MarvelappTheme
 
 @Composable

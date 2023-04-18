@@ -39,13 +39,11 @@ class SearchCharacterViewModel @Inject constructor(
                 }
             }
         }
-
     }
 
     private fun handleResponse(
         response: Response<CharacterModelResponse>
     ): ResourceState<CharacterModelResponse> {
-
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return ResourceState.Success(resultResponse)
@@ -53,5 +51,5 @@ class SearchCharacterViewModel @Inject constructor(
         }
         return ResourceState.Error(response.message())
     }
-
 }
+

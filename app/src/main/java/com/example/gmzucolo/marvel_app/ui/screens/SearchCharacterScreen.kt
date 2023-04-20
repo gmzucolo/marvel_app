@@ -84,7 +84,7 @@ private fun CharacterItem(
 @Composable
 fun SearchCharacterScreenLightPreview() {
     MarvelappTheme(darkTheme = false) {
-        SearchCharacterScreen()
+//        SearchCharacterScreen()
     }
 }
 
@@ -92,6 +92,6 @@ fun SearchCharacterScreenLightPreview() {
 @Composable
 fun SearchCharacterScreenDarkPreview() {
     MarvelappTheme(darkTheme = true) {
-        SearchCharacterScreen()
+//        SearchCharacterScreen()
     }
 }

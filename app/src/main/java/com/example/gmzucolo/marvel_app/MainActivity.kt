@@ -13,14 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.gmzucolo.marvel_app.data.sample.bottomAppBarItems
 import com.example.gmzucolo.marvel_app.navigation.AppDestination
 import com.example.gmzucolo.marvel_app.ui.components.BottomAppBarItem
 import com.example.gmzucolo.marvel_app.ui.components.MarvelBottomBar
+import com.example.gmzucolo.marvel_app.ui.screens.DetailCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.screens.FavoriteScreen
 import com.example.gmzucolo.marvel_app.ui.screens.MarvelCharacterScreen
 import com.example.gmzucolo.marvel_app.ui.screens.SearchCharacterScreen
@@ -64,7 +68,11 @@ class MainActivity : ComponentActivity() {
                             startDestination = AppDestination.Home.route
                         ) {
                             composable(AppDestination.Home.route) {
-                                MarvelCharacterScreen()
+                                MarvelCharacterScreen(
+                                    viewModel = hiltViewModel()
+                                ) { character ->
+                                    navController.navigate("${AppDestination.Detail.route}/${character.id}")
+                                }
                             }
                             composable(AppDestination.Search.route) {
                                 SearchCharacterScreen()
@@ -72,16 +80,19 @@ class MainActivity : ComponentActivity() {
                             composable(AppDestination.Favorite.route) {
                                 FavoriteScreen()
                             }
-//                            composable("${AppDestination.Detail.route}/{characterId}") { backStackEntry ->
-//                                val id = backStackEntry.arguments?.getString("characterId")
-//                                sampleCharacters.find {
-//                                    it.id == id
-//                                }?.let { character ->
-//                                    DetailCharacterScreen(
-//                                        character = character,
-//                                        onFavoriteClick = { navController.navigate(AppDestination.Favorite.route) })
-//                                }
-//                            }
+                            composable("${AppDestination.Detail.route}/{characterId}",
+                                arguments = listOf(
+                                    navArgument("characterId") {
+                                        type = NavType.IntType
+                                    }
+                                )
+                            ) { backStackEntry ->
+                                val characterId =
+                                    backStackEntry.arguments?.getInt("characterId") ?: 0
+                                DetailCharacterScreen(
+                                    viewModel = hiltViewModel(),
+                                    characterId = characterId)
+                            }
                         }
                     }
                 }

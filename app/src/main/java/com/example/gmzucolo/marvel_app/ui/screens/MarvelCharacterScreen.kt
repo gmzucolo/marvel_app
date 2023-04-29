@@ -69,7 +69,6 @@ private fun CharacterItem(
     character: CharacterModel,
     onCLick: () -> Unit = {}
 ) {
-    var selectedCharacter by remember { mutableStateOf(-1) }
     Row(
         modifier = Modifier
             .padding(8.dp)
